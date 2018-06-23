@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Projects</title>
+</head>
+<body>
+	<h1><%= pluralize(@projects.size,"Project")  %></h1>
+	<ul>
+		<% @projects.each do |project| %>
+			<li><%= project %></li>
+			
+		<% end  %>
+		<li>Project 1</li>
+		<li>Project 2</li>
+		<li>Project 3</li>
+	</ul>
+</body>
+</html>

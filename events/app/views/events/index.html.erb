@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Events</title>
+</head>
+<body>
+	<h1><%=pluralize(@events.size,"Event") %></h1>
+	<ul>
+		<% @events.each do |event| %>
+			<li><%= event.name %></li>
+			<li><%= event.location %></li>
+			<li><%= event.description %></li>
+			<li><%= event.starts_at %></li>
+			<li><%= number_to_currency(event.price) %></li>
+		<% end %>
+	</ul>
+</body>
+</html>

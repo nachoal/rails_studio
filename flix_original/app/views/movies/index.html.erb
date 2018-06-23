@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flix</title>
+</head>
+<body>
+	<h1><%= pluralize(@movies.size,"Movie") %></h1>
+	<ul>
+		<%@movies.each do |movie|%>
+			<article>		
+				<strong>
+					<header><h2><%= link_to(movie.title, movie) %></h2></header>
+				</strong>
+				<table>
+					<tr>
+						<th>Rating:</th>
+						<td><%= movie.rating %></td>
+					</tr>
+					<tr>
+						<th>Total Gross:</th>
+						<td><%= format_total_gross(movie) %></td>
+					</tr>
+					<tr>
+						<th>Description:</th>
+						<td><%= truncate(movie.description, length: 40, separator: ' ') %></td>
+					</tr>
+					<tr>
+						<th>Released on:</th>
+						<td><%= movie.released_on %> (<%= time_ago_in_words(movie.released_on) %> ago)</td>
+
+					</tr>
+				</table>	
+			</article>
+		<% end %>
+	</ul>
+</body>
+</html>

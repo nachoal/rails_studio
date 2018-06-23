@@ -1,0 +1,91 @@
+1.The ROUTER connects the requested URL to the appropriate code in the controller.
+
+2.Controllers and models share two similar characteristics. They are both Ruby CLASSES and they both INHERIT capabilities from a parent class.
+
+3.Are controller names singular or plural?
+
+They are plural as in EventsController or MoviesController 
+
+4.Are model names singular or plural?
+Singular as in Movie model
+
+5.Are database table names singular or plural?
+
+They are plural because the table contains many records (or rows) that each represent one event, movie, or so on.
+
+6. The model gets its power to create, read, update, and delete objects not by magic, but because it INHERITS from the ApplicationRecord class.
+
+The model inherits from the ApplicationRecord class. ApplicationRecord in turn inherits from ActiveRecord::Base which does all the heavy lifting when it comes to interacting with the database. Subclasses of ApplicationRecord inherit these special database powers.
+
+
+7.An ACTION is simply a Ruby method defined inside a controller class.
+
+
+8.A controller action passes data to the view via ___________ ____________.
+A controller action passes data to the view via instance variables, such as @movies.
+
+9.A typical VIEW template is a mixture of HTML tags and embedded ruby(ERb) tags.
+
+10. Which ERb tag runs the Ruby code and substitutes the result back into the template: <%= %> or <% %>?
+A: <%= %> 
+
+
+//CONVENTION CHECK//
+
+1. By convention, the book listing route would map a GET request for the URL /books .
+
+2. The name of the controller would be books_controller(BooksController) and the name of the action would be INDEX.
+
+3.If we don't explicitly tell the index action the name of the view template to render, what will Rails do by convention?
+
+Because the name of the action is index, Rails will assume it should look for a view template with a similar name: index.html.erb. Because the name of the controller is BooksController, Rails will look for the view template in the app/views/books directory.
+
+4. The model would be named Book.
+
+5. The corresponding database table would be named books.
+
+6. If the model was named Person, the database table would be named people.
+
+7. After a migration has been run (or applied), its status changes from down to up.
+
+
+//ROUTES //
+
+1. What URL will calling the books_path method generate?
+/books 
+
+2. What URL will calling the books_url method generate?
+example.com/books
+
+3.The link_to helper method takes 2 parameters:
+the name of the page and the url 
+
+4. How would you link the words "See All Books" to the index page of the books app?
+
+<%= link_to("See All Books", books_path) %> 
+
+5. By convention, the name of the index route is books. What would you name the route for showing a particular book?
+
+book 
+
+6. How would you link a book's title to the book's show page? There are 2 possible answers.
+<%= link_to(book.title, book) %>
+
+7. How would you add a root route that maps http://localhost:3000 to the index page?
+
+root "books#index"
+
+8. Lastly, with our root route in place, how would you change the "See All Books" link on the show page to now point to the root URL.
+
+<%= link_to("See All Books", root_path) %> 
+
+
+
+
+
+
+
+
+
+
+

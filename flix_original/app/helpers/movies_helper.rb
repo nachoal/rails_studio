@@ -15,5 +15,11 @@ module MoviesHelper
 		end
 	end
 
-
+	def image_for(movie)
+		if movie.image_file_name.blank?
+			image_tag("placeholder.jpg", width: "100px")
+		else
+			image_tag(movie.image_file_name, width: "100px")
+		end 
+	end
 end

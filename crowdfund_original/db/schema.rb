@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619044156) do
+ActiveRecord::Schema.define(version: 20180626235327) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.decimal  "target_pledge_amount"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "website"
     t.date     "pledging_ends_on"
+    t.string   "team_members"
+    t.string   "image_file_name",      default: ""
   end
 
 end

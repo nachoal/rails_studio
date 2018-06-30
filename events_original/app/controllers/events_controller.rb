@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 	def index
 		#@events = ['BugSmash', 'Hackaton', 'Kata Camp', 'Rails User Group']
-		@events = Event.all
+		@events = Event.upcoming
 	end
 
 	def show
@@ -28,13 +28,19 @@ class EventsController < ApplicationController
 		@event.save
 		redirect_to event_path(@event)
 	end
+
+	def destroy
+		@event = Event.find(params[:id])
+		@event.destroy 
+		redirect_to events_path
+	end
 end
 
 
 private
 	def event_params
 		params.require(:event).
-						permit(:name, :description, :location, :price, :starts_at)
+						permit(:name, :description, :location, :price, :starts_at, :image_file_name , :capacity)
 	end
 
 

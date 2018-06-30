@@ -7,7 +7,9 @@
 	<body>
 		<article>
 			<header>
+				<%= image_for(@event)  %>
 				<h2><%= @event.name %></h2>
+				<h2><%= @event.capacity%></h2>
 			</header>
 			<p>
 				<%= @event.description %>
@@ -31,5 +33,6 @@
 		<!-- This is the same as the other one <a href="/events">All Events</a> -->
 		<%= link_to "All events", events_path %>|
 		<%= link_to "Edit", edit_event_path %>
+		<%= link_to "Delete", event_path(@event), method: :delete, data: {confirm: 'Are you sure?'}  %>
 	</body>
 </html> 

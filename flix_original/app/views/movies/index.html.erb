@@ -6,11 +6,15 @@
 </head>
 <body>
 	<h1><%= pluralize(@movies.size,"Movie") %></h1>
+	<%= link_to("Add new movie", new_movie_path) %>
 	<ul>
 		<%@movies.each do |movie|%>
 			<article>		
 				<strong>
-					<header><h2><%= link_to(movie.title, movie) %></h2></header>
+					<header>
+						<h2><%= link_to(movie.title, movie) %></h2>
+						<%= image_for(movie)%>
+					</header>
 				</strong>
 				<table>
 					<tr>
@@ -28,11 +32,19 @@
 					<tr>
 						<th>Released on:</th>
 						<td><%= movie.released_on %> (<%= time_ago_in_words(movie.released_on) %> ago)</td>
-
+						<tr>
+					<th>Cast:</th>
+					<td><%= movie.cast %></td>
 					</tr>
+					<tr>
+						<th>Duration:</th>
+						<td><%= movie.duration %></td>
+					</tr>
+						</tr>
 				</table>	
 			</article>
 		<% end %>
 	</ul>
+	<%= render 'footer'  %>
 </body>
 </html>

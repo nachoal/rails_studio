@@ -8,7 +8,11 @@
 	<ul>
 		<article>		
 			<strong>
-				<header><h2><%= @movie.title %></h2></header>
+				<header>
+					<h2><%= @movie.title %></h2>
+					<%= image_for(@movie)%>
+				</header>
+
 			</strong>
 			<table>
 				<tr>
@@ -28,11 +32,26 @@
 					<td><%= @movie.released_on %> (<%= time_ago_in_words(@movie.released_on) %> ago)</td>
 
 				</tr>
+				<tr>
+					<th>Cast:</th>
+					<td><%= @movie.cast %></td>
+
+				</tr>
+				<tr>
+					<th>Director:</th>
+					<td><%= @movie.director %></td>
+				</tr>
+
+				<tr>
+					<th>Duration:</th>
+					<td><%= @movie.duration %></td>
+				</tr>
 			</table>	
 		</article>
 	</ul>
 	<%= link_to("All Movies", root_path) %>|
-	<%= link_to("Edit", edit_movie_path) %> 
+	<%= link_to("Edit", edit_movie_path) %>
+	<%= link_to "Delete", movie_path(@movie), method: :delete, data: {confirm: 'Are you sure?'}  %> 
 </body>
 </body>
 </html>
